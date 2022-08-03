@@ -1,12 +1,17 @@
 <resources>
-    <string name="app_name">BLEScanner</string>
+    <string name="app_name">My Beacon App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="mac">MAC - %1$s</string>
     <string name="rssi">RSSI: %1$d</string>
+    <string name="distance">Distance: %1$f</string>
     <string name="instance">Instance: %1$s</string>
     <string name="namespace">Namespace: %1$s</string>
     <string name="uuid">UUID: %1$s</string>
+    <string name="X_Coordinate">X: %1$f</string>
+    <string name="Y_Coordinate">Y: %1$f</string>
+    <string name="X_Coordinate2">X: %1$f</string>
+    <string name="Y_Coordinate2">Y: %1$f</string>
     <string name="major_minor">Major: %1$s Minor: %2$s</string>
     <string-array name="BLE_Scanner_Type">
         <item>All</item>

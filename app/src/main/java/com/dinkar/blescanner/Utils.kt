@@ -17,7 +17,7 @@ object Utils {
         }
         return String(hexChars)
     }
-
+    /******Remember to preset anchor point data and scan it *****/
     fun isZeroed(bytes: ByteArray): Boolean {
         for (b in bytes) {
             if (b.toInt() != 0x00) {
@@ -40,4 +40,5 @@ object Utils {
             }
         }
     }
+
 }
