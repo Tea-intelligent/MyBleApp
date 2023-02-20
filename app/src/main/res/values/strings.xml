@@ -10,6 +10,8 @@
     <string name="uuid">UUID: %1$s</string>
     <string name="X_Coordinate">X: %1$f</string>
     <string name="Y_Coordinate">Y: %1$f</string>
+    <string name="yNa_coord">Y: Na</string>
+    <string name="xNa_coord">X: Na</string>
     <string name="X_Coordinate2">X: %1$f</string>
     <string name="Y_Coordinate2">Y: %1$f</string>
     <string name="major_minor">Major: %1$s Minor: %2$s</string>

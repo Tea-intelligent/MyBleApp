@@ -168,7 +168,7 @@ class ScannerFragment : Fragment() {
             val beacon = Beacon(result.device.address)
             beacon.manufacturer = result.device.name
             beacon.rssi = result.rssi
-
+            // TODO try to become a cow later (i can't become a fish)
             val indexQuery = beaconSet.indexOfFirst { it.macAddress == result.device.address}
             if (indexQuery != -1) { // A scan result already exists with the same address
                 beaconSet[indexQuery] = beacon
@@ -220,43 +220,68 @@ class ScannerFragment : Fragment() {
             var coor: List<Double> = beaconAdapter!!.MinMax()
             var coor2: List<Double> = beaconAdapter!!.WeightedTrilaterationPosition()
             X_coord?.text = context?.let {
-                String.format(
-                    it.getString(R.string.X_Coordinate),
-                    coor[0] // beacon.rssi
-                )
+                if(coor[0] == -1.0){
+                    String.format(
+                        it.getString(R.string.xNa_coord)
+                    )
+                }
+                else{
+                    String.format(
+                        it.getString(R.string.X_Coordinate),
+                        coor[0]
+                    )
+                }
             }
 
             Y_coord?.text = context?.let {
-                String.format(
-                    it.getString(R.string.Y_Coordinate),
-                    coor[1]
-                )
+                if(coor[1] == -1.0){
+                    String.format(
+                        it.getString(R.string.yNa_coord)
+                    )
+                }
+                else{
+                    String.format(
+                        it.getString(R.string.Y_Coordinate),
+                        coor[1]
+                    )
+                }
             }
 
             X_coord2?.text = context?.let {
-                String.format(
-                    it.getString(R.string.X_Coordinate2),
-                    coor2[0] // beacon.rssi
-                )
+                if(coor[0] == -1.0){
+                    String.format(
+                        it.getString(R.string.xNa_coord)
+                    )
+                }
+                else{
+                    String.format(
+                        it.getString(R.string.X_Coordinate2),
+                        coor2[0]
+                    )
+                }
             }
 
             Y_coord2?.text = context?.let {
-                String.format(
-                    it.getString(R.string.Y_Coordinate2),
-                    coor2[1]
-                )
+                if(coor[1] == -1.0){
+                    String.format(
+                        it.getString(R.string.yNa_coord)
+                    )
+                }
+                else{
+                    String.format(
+                        it.getString(R.string.Y_Coordinate2),
+                        coor2[1]
+                    )
+                }
             }
 
             (recyclerView.adapter as BeaconsAdapter).updateData(beaconSet.toList())
         }
-
+        /****/
         override fun onScanFailed(errorCode: Int) {
             Log.e("OOPS", errorCode.toString())
         }
 
-
     }
-
-
 }
 

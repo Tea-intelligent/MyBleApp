@@ -17,10 +17,9 @@ open class Beacon(mac: String?) {
     open var uuid: String? = null
     var major: Int? = null
     var minor: Int? = null
-    var namespace: String? = null
-    var instance: String? = null
+    // var namespace: String? = null
+    // var instance: String? = null
     var rssi: Int? = null
-    var anchor: Boolean = false
 
     /**addition field**/
     var x: Int = -1
@@ -40,34 +39,35 @@ open class Beacon(mac: String?) {
         return macAddress?.hashCode() ?: 0
     }
 
-    private val  referenceRssi: Double = -50.0
-    private val envParameter: Double = 2.4
+    private val  referenceRssi: Double = -55.0
+    private val envParameter: Double = 3.5
     fun getCalculatedDistance(): Double{
         var distance: Double = 0.0 /************/
         // var FilteredRssi = kf.getFilteredValue(rssi!!.toDouble())
         // var rssiDiff = referenceRssi - FilteredRssi
         var rssiDiff = referenceRssi - rssi!!.toDouble()
         distance = 10.0.pow(rssiDiff / (10 * envParameter))
-        // Log.i("Distacne", "$uuid : $distance")
         return distance
     }
-
 }
 
 class anchors(){
     val number = 3
     val uuidList:List<String> = listOf<String>(
-        "644F76F76A5242BCE911FD902C9BB987",
-        "7777772E6B6B6D636E2E636F6D000001", // TODO set this up later 
-        "00112233445566778899AABBCCDDEEFF"
+        "644F76F76A5242BCE911FD902C9BB987", //(0,430)
+        "020012AC42021D86ED11EF1374360E91", // TODO set this up later 7777772E6B6B6D636E2E636F6D000001
+        "020012AC42021D86ED11F0132064F146"
     )
-    val xList = listOf<Double>(0.0, 50.0, 0.0)
-    val yList = listOf<Double>(0.0, 0.0, 50.0)
-    var anchor1Rssi: Int? = null
-    var anchor2Rssi: Int? = null
-    var anchor3Rssi: Int? = null
+    val xList = listOf<Double>(0.0, 3.9, 0.0)
+    val yList = listOf<Double>(4.3, 0.0, 0.0)
+
+    // var anchor1Rssi: Int? = null
+    // var anchor2Rssi: Int? = null
+    // var anchor3Rssi: Int? = null
 
     var distance1 = -1.0
     var distance2 = -1.0
     var distance3 = -1.0
 }
+
+

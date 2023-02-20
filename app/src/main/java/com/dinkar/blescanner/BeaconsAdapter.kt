@@ -136,11 +136,9 @@ class BeaconsAdapter(beacons: List<Beacon>) :
     private fun anchorSetup(beacon: Beacon){
         for(uuid in Anchor.uuidList){
             if(beacon.uuid == Anchor.uuidList[0]){
-                Anchor.anchor1Rssi = beacon.rssi
                 Anchor.distance1 = beacon.getCalculatedDistance()
             }
             if(beacon.uuid == Anchor.uuidList[1]){
-                Anchor.anchor2Rssi = beacon.rssi
                 Anchor.distance2 = beacon.getCalculatedDistance()
             }
             /*
@@ -150,7 +148,6 @@ class BeaconsAdapter(beacons: List<Beacon>) :
             }
             */
             else{
-                Anchor.anchor3Rssi = beacon.rssi
                 Anchor.distance3 = beacon.getCalculatedDistance()
             }
         }
@@ -201,7 +198,6 @@ class BeaconsAdapter(beacons: List<Beacon>) :
             instanceMajorMinor = itemView.findViewById(R.id.beacon_instance_major_minor)
             rssi = itemView.findViewById(R.id.beacon_rssi)
             distance = itemView.findViewById(R.id.beacon_distance)
-
         }
 
         fun bind(beacon: Beacon) {
@@ -233,10 +229,13 @@ class BeaconsAdapter(beacons: List<Beacon>) :
             val loguuid = beacon.uuid
             val logrssi = beacon.rssi
             Log.i("THIS IS RSSI:", "beacon uuid:$loguuid $logrssi")
-
         }
 
     }
 }
-
+/**
+ * We no stranger to love
+ * You known the rules and so do I
+ * A full commitment is what you looking for
+ */
 
